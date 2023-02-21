@@ -122,6 +122,19 @@ public class Village {
 		return chaine.toString();
 	}
 	
+	public String afficherMarche() {
+		StringBuilder chaine = new StringBuilder();
+		int etalsOccupes = marche.etal.length;
+		if (etalsOccupes==0) {
+			chaine.append("Il n'y a aucun vendeur au village " + getNom()+".\n");
+			return chaine.toString();
+		}
+		chaine.append("Le marché du village "+ getNom() + " possède plusieurs étals :\n");
+		chaine.append(marche.afficherMarche());
+		return chaine.toString();
+
+	}
+	
 	public String installerVendeur(Gaulois vendeur, String produit,int nbProduit) {
 		StringBuilder chaine = new StringBuilder();
 		chaine.append(vendeur.getNom() + " cherche un endroit pour vendre " + nbProduit + " " + produit + ".\n");
