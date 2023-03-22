@@ -15,6 +15,12 @@ public class Village {
 		villageois = new Gaulois[nbVillageoisMaximum];
 		marche = new Marche(nbEtals);
 	}
+	
+	public class VillageSansChefException extends Exception {
+	    public VillageSansChefException(String message) {
+	        super(message);
+	    }
+	}
 
 	private static class Marche {
 		private Etal[] etal;
@@ -70,7 +76,7 @@ public class Village {
 					nbEtalVide+=1;
 				}
 				else {
-					chaine.append("- " + etal[i].getVendeur().getNom() +"\n");
+					chaine.append(etal[i].afficherEtalMarche());
 				}
 			}
 			chaine.append("Il reste " +nbEtalVide + " étals non utilisés dans le marché.\n");
@@ -107,7 +113,10 @@ public class Village {
 		return null;
 	}
 
-	public String afficherVillageois() {
+	public String afficherVillageois() throws VillageSansChefException {
+	    if (chef == null) {
+	        throw new VillageSansChefException("Le village n'a pas de chef !");
+	    }
 		StringBuilder chaine = new StringBuilder();
 		if (nbVillageois < 1) {
 			chaine.append("Il n'y a encore aucun habitant au village du chef "
