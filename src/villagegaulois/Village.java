@@ -69,14 +69,14 @@ public class Village {
 		}
 
 		public String afficherMarche() {
-			StringBuilder chaine = new StringBuilder("Liste des marchés :\n");
+			StringBuilder chaine = new StringBuilder("");
 			int nbEtalVide = 0;
 			for (int i = 0; i< etal.length; i++) {
 				if(!etal[i].isEtalOccupe()) {
 					nbEtalVide+=1;
 				}
 				else {
-					chaine.append(etal[i].afficherEtalMarche());
+					chaine.append(etal[i].afficherEtal());
 				}
 			}
 			chaine.append("Il reste " +nbEtalVide + " étals non utilisés dans le marché.\n");

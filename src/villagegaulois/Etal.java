@@ -46,16 +46,8 @@ public class Etal {
 	    }
 	    return chaine.toString();
 	}
-
-	public String afficherEtal() {
-		if (etalOccupe) {
-			return "L'étal de " + vendeur.getNom() + " est garni de " + quantite
-					+ " " + produit + "\n";
-		}
-		return "L'étal est libre";
-	}
 	
-	public String afficherEtalMarche() {
+	public String afficherEtal() {
 		if (etalOccupe) {
 			return vendeur.getNom() + " vend " + quantite + " " + produit + "\n";
 		}
