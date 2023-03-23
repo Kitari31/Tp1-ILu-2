@@ -41,6 +41,14 @@ public class Scenario {
 		System.out.println(etalFleur.acheterProduit(15, assurancetourix));
 		System.out.println(village.partirVendeur(bonemine));
 		System.out.println(village.afficherMarche());
+		
+		Etal etal = new Etal();
+		Gaulois crayon = new Gaulois("Crayon", 7);
+		System.out.println(etal.libererEtal());
+		System.out.println(etal.acheterProduit(2,null));
+		System.out.println(etal.acheterProduit(-2,crayon));
+		System.out.println(etal.acheterProduit(2,crayon));
+		System.out.println("Fin du test");
 	}
 
 }
