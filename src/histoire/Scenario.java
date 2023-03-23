@@ -9,7 +9,7 @@ import villagegaulois.Village.VillageSansChefException;
 
 public class Scenario {
 
-	public static void main(String[] args) throws VillageSansChefException {
+	public static void main(String[] args){
 		Village village = new Village("le village des irréductibles", 10, 5);
 		Chef abraracourcix = new Chef("Abraracourcix", 10, village);
 		village.setChef(abraracourcix);
@@ -25,7 +25,12 @@ public class Scenario {
 		village.ajouterHabitant(obelix);
 		village.ajouterHabitant(druide);
 		village.ajouterHabitant(abraracourcix);
-		village.afficherVillageois();
+		try {
+			village.afficherVillageois();
+		} catch (VillageSansChefException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 
 		System.out.println(village.installerVendeur(bonemine, "fleurs", 20));
